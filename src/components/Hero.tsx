@@ -49,37 +49,47 @@ export const Hero = () => {
       <div className="relative z-10 max-w-3xl mx-auto px-4 pt-16 pb-8 sm:px-6 lg:px-8">
         <div className="text-center">
           {/* Profile Image Container */}
-          <div
-            className={`
-            inline-block mb-8 
-            transform transition-all duration-700 ease-out
-            ${
-              isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-            }
-          `}
-          >
+          <div className="text-center">
+            {/* Profile Image Container */}
             <div
               className={`
-              w-48 h-48 rounded-full overflow-hidden border-2 border-foreground
-              transform transition-all duration-1000 delay-500
-              ${isLoaded ? 'scale-100 rotate-0' : 'scale-95 rotate-6'}
-            `}
-              style={{
-                animation: 'breathe 3s ease-in-out infinite',
-              }}
+              inline-block mb-8 
+              transform transition-all duration-700 ease-out
+              ${
+                isLoaded
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-4 opacity-0'
+              }
+              `}
             >
-              <div className="relative w-full h-full">
-                <Image
-                  src="/profile.jpeg"
-                  alt="Snehdeep Singh"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className={`
-                    object-cover object-center
-                    transition-all duration-700 delay-300
-                    ${isLoaded ? 'scale-100' : 'scale-110'}
-                  `}
-                />
+              <div
+                className={`
+                w-48 h-48 rounded-full overflow-hidden border-2 border-foreground
+                transform transition-all duration-1000 delay-500
+                ${isLoaded ? 'scale-100 rotate-0' : 'scale-95 rotate-6'}
+              `}
+                style={{
+                  animation: 'breathe 3s ease-in-out infinite',
+                }}
+              >
+                <div className="relative w-full h-full">
+                  <Image
+                    src="/profile.png"
+                    alt="Shashank Singh"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className={`
+                  object-cover
+                  object-[center_top] // shifts the image position upward to reveal more of the top (hair)
+                  transition-all duration-700 delay-300
+                  ${
+                    isLoaded
+                      ? 'scale-100 translate-y-0.5'
+                      : 'scale-110 translate-y-0.5'
+                  } // increased translate-y to nudge image down
+                `}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -95,13 +105,13 @@ export const Hero = () => {
           `}
           >
             <a
-              href="https://www.linkedin.com/in/snehdeep-singh/"
+              href="https://www.linkedin.com/in/shashank-shekhar-singh1/"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2"
             >
               <h1 className="text-4xl font-bold text-foreground sm:text-5xl tracking-tight transition-transform duration-150 group-hover:scale-[1.02] border-b-2 border-foreground">
-                Snehdeep Singh
+                Shashank Singh
               </h1>
               <Linkedin className="h-5 w-5 text-foreground/60 group-hover:text-foreground transition-colors" />
             </a>
@@ -125,42 +135,42 @@ export const Hero = () => {
           <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 px-4">
             {[
               {
-                href: 'mailto:singhsnehdeep99@gmail.com',
-                icon: Mail,
-                text: 'singhsnehdeep99@gmail.com',
-                delay: 400,
+              href: 'mailto:shashank.singh1290r@gmail.com',
+              icon: Mail,
+              text: 'shashank.singh1290r@gmail.com',
+              delay: 400,
               },
               {
-                href: 'https://github.com/Snehdeep-ts',
-                icon: Github,
-                text: 'Snehdeep-ts',
-                delay: 600,
-                isExternal: true,
+              href: 'https://github.com/Imshashank3',
+              icon: Github,
+              text: 'Imshashank3',
+              delay: 600,
+              isExternal: true,
               },
             ].map(({ href, icon: Icon, text, delay, isExternal }) => (
               <a
-                key={href}
-                href={href}
-                target={isExternal ? '_blank' : undefined}
-                rel={isExternal ? 'noopener noreferrer' : undefined}
-                className={`
-                  text-foreground/80 hover:text-foreground 
-                  flex items-center gap-2 w-full sm:w-auto justify-center 
-                  transition-all duration-700
-                  transform
-                  ${
-                    isLoaded
-                      ? 'translate-y-0 opacity-100'
-                      : 'translate-y-4 opacity-0'
-                  }
-                `}
-                style={{ transitionDelay: `${delay}ms` }}
+              key={href}
+              href={href}
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noopener noreferrer' : undefined}
+              className={`
+              text-foreground/80 hover:text-foreground 
+              flex items-center gap-2 w-full sm:w-auto justify-center 
+              transition-all duration-700
+              transform
+              ${
+              isLoaded
+                ? 'translate-y-0 opacity-100'
+                : 'translate-y-4 opacity-0'
+              }
+              `}
+              style={{ transitionDelay: `${delay}ms` }}
               >
-                <Icon className="h-4 w-4 flex-shrink-0" />
-                <span className="text-sm sm:text-base relative group">
-                  {text}
-                  <span className="absolute left-0 -bottom-0.5 w-0 h-[1px] bg-foreground group-hover:w-full transition-all duration-150 ease-out" />
-                </span>
+              <Icon className="h-4 w-4 flex-shrink-0" />
+              <span className="text-sm sm:text-base relative group">
+              {text}
+              <span className="absolute left-0 -bottom-0.5 w-0 h-[1px] bg-foreground group-hover:w-full transition-all duration-150 ease-out" />
+              </span>
               </a>
             ))}
           </div>
